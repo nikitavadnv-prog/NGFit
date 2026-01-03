@@ -1,0 +1,37 @@
+{
+  "name": "ngfit",
+  "version": "1.0.0",
+  "description": "Full-stack fitness training management application with Telegram mini-app",
+  "main": "server/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "cd client && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc server/index.ts --outDir dist",
+    "build:client": "cd client && npm run build",
+    "start": "node dist/index.js",
+    "db:migrate": "drizzle-kit generate:sqlite",
+    "db:push": "drizzle-kit push:sqlite"
+  },
+  "keywords": ["fitness", "training", "telegram", "mini-app"],
+  "author": "NGFit Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.0",
+    "postgres": "^3.4.3",
+    "telegram": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/node": "^20.8.9",
+    "typescript": "^5.2.2",
+    "tsx": "^4.1.0",
+    "drizzle-kit": "^0.20.0",
+    "concurrently": "^8.2.1"
+  }
+}
