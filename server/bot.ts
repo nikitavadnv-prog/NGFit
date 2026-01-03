@@ -3,8 +3,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Telegram Bot Token - Pre-configured and ready to use!
-const BOT_TOKEN = '8346680551:AAEAFrTK8yEogbjWMD4KsR8gBlRprTlizZg';
+// Telegram Bot Token from environment variables
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
+
 const MINI_APP_URL = process.env.MINI_APP_URL || 'https://ngfit.yourdomain.com';
 
 const bot = new Telegraf(BOT_TOKEN);
