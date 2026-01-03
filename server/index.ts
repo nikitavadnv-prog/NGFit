@@ -1,6 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { startBot } from './bot';
+
 
 dotenv.config();
 
@@ -39,7 +41,8 @@ app.use((err: any, req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`\n✅ Server running at http://localhost:${PORT}`);
   console.log(`📋 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🗄️  Database: ${process.env.DATABASE_URL?.split('/')[2]}\n`);
+  startBot();
+ console.log(`🗄️  Database: ${process.env.DATABASE_URL?.split('/')[2]}\n`);
 });
 
 export default app;
